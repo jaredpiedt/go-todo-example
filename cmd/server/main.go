@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/jaredpiedt/go-todo-example"
 	"github.com/jaredpiedt/go-todo-example/mysql"
