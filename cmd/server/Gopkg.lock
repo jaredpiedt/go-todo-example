@@ -23,11 +23,11 @@
   branch = "master"
   name = "github.com/jaredpiedt/go-todo-example"
   packages = [".","mysql"]
-  revision = "4c58de0ff932a12d0c9b2d6b17b384d1345aa0df"
+  revision = "7a70bee6fa271eb6c5476686c301fd6b148c3373"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a753191417e3cc01dd4c7fa78ad1a4fc0c1f03bac6be98c4dd3019513b7702db"
+  inputs-digest = "4d8dbe285299385eba54ce7619dfd94ce1bcd1bce396d987ed29e3d265b2a985"
   solver-name = "gps-cdcl"
   solver-version = 1
