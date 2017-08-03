@@ -17,7 +17,7 @@ var s todo.Store
 func main() {
 	// Connect to our database
 	dsn := fmt.Sprintf(
-		"%s:%s@tcp(%s:%s)",
+		"%s:%s@tcp(%s:%s)/?parseTime=true",
 		os.Getenv("DB_USERNAME"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_HOST"),
