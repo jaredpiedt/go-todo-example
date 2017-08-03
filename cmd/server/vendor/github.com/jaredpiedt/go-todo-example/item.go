@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// Item represents a single todo-item
+// Item represents a single todo item.
 type Item struct {
 	ID          int64     `json:"id,omitempty"`
 	Title       string    `json:"title,omitempty"`
