@@ -23,23 +23,23 @@ type Store struct {
 func NewStore(db *sql.DB) (*Store, error) {
 	unprepared := map[string]string{
 		QueryCreateItem: `
-			INSERT INTO Item (title, description)
-			VALUES(?, ?)
+			INSERT INTO todo.items (title, description)
+			VALUES(?, ?);
 		`,
 		QueryDeleteItem: `
-			DELETE FROM Item
+			DELETE FROM todo.items
 			WHERE id = ?;
 		`,
 		QueryFindItemByID: `
 			SELECT i.id, i.title, i.description, i.completed, i.created_at, i.updated_at
-			FROM Item i
+			FROM todo.items i
 			WHERE id = ?;
 		`,
 		QueryUpdateItemByID: `
-			UPDATE Item i
+			UPDATE todo.items i
 			SET 
 				i.title = ?,
-				i.description = ?
+				i.description = ?,
 				i.completed = ?
 			WHERE i.id = ?;
 		`,
