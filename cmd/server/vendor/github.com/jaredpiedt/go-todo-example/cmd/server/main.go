@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/jaredpiedt/go-todo-example"
 	"github.com/jaredpiedt/go-todo-example/mysql"
@@ -16,7 +17,7 @@ var s todo.Store
 func main() {
 	// Connect to our database
 	dsn := fmt.Sprintf(
-		"%s:%s@tcp(%s:%s)",
+		"%s:%s@tcp(%s:%s)/?parseTime=true",
 		os.Getenv("DB_USERNAME"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_HOST"),

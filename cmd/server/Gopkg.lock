@@ -23,7 +23,7 @@
   branch = "master"
   name = "github.com/jaredpiedt/go-todo-example"
   packages = [".","mysql"]
-  revision = "24ca7a75c8a7108149ee84f1f36697380779475f"
+  revision = "9963c1622cc8fdef3b755e3363e63f7a5b84e9ae"
 
 [solve-meta]
   analyzer-name = "dep"
