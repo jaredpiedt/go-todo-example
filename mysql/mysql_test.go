@@ -52,8 +52,7 @@ func TestPrepareStatements(t *testing.T) {
 
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
-		t.Error(err)
-		t.FailNow()
+		t.Fatal(err)
 	}
 
 	unprepared := map[string]string{
@@ -62,12 +61,10 @@ func TestPrepareStatements(t *testing.T) {
 
 	stmts, err := prepareStmts(db, unprepared)
 	if err != nil {
-		t.Error(err)
-		t.FailNow()
+		t.Fatal(err)
 	}
 
 	if len(stmts) != 1 {
-		t.Errorf("incorrect number of statements prepared; got %v want %v", len(stmts), 1)
-		t.FailNow()
+		t.Fatalf("incorrect number of statements prepared; got %v want %v\n", len(stmts), 1)
 	}
 }

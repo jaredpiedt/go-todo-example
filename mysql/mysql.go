@@ -18,7 +18,7 @@ type Store struct {
 	stmts map[string]*sql.Stmt
 }
 
-// NewStore will prepares all of our queries on the provided
+// NewStore will prepare all of our queries on the provided
 // database and returns a pointer to a new `mysql.Store` instance.
 func NewStore(db *sql.DB) (*Store, error) {
 	unprepared := map[string]string{

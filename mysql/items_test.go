@@ -66,27 +66,23 @@ func TestFindItemByID(t *testing.T) {
 		i := newTestItem()
 		createdItem, err := s.CreateItem(i)
 		if err != nil {
-			t.Error(err)
-			t.FailNow()
+			t.Fatal(err)
 		}
 
 		foundItem, err := s.FindItemByID(fmt.Sprintf("%v", createdItem.ID))
 		if err != nil {
-			t.Error(err)
-			t.FailNow()
+			t.Fatal(err)
 		}
 
 		if createdItem.ID != foundItem.ID {
-			t.Errorf("Item ids do not match: wanted %v, got %v", createdItem.ID, foundItem.ID)
-			t.FailNow()
+			t.Fatalf("Item ids do not match: wanted %v, got %v\n", createdItem.ID, foundItem.ID)
 		}
 	})
 
 	t.Run("non-existing item", func(t *testing.T) {
 		_, err := s.FindItemByID("0")
 		if err.Error() != "sql: no rows in result set" {
-			t.Error(err)
-			t.FailNow()
+			t.Fatal(err)
 		}
 	})
 }
@@ -99,8 +95,7 @@ func TestUpdateItemByID(t *testing.T) {
 
 	createdItem, err := s.CreateItem(i)
 	if err != nil {
-		t.Error(err)
-		t.FailNow()
+		t.Fatal(err)
 	}
 
 	// Update the items title
@@ -110,25 +105,21 @@ func TestUpdateItemByID(t *testing.T) {
 	itemToUpdate.Completed = true
 	err = s.UpdateItemByID(fmt.Sprintf("%v", createdItem.ID), itemToUpdate)
 	if err != nil {
-		t.Error(err)
-		t.FailNow()
+		t.Fatal(err)
 	}
 
 	updatedItem, err := s.FindItemByID(fmt.Sprintf("%v", createdItem.ID))
 	if err != nil {
-		t.Error(err)
-		t.FailNow()
+		t.Fatal(err)
 	}
 
 	// Verify the title
 	if updatedItem.Title != itemToUpdate.Title {
-		t.Errorf("title not udpdated; expected %v, got %v", itemToUpdate.Title, updatedItem.Title)
-		t.FailNow()
+		t.Fatalf("title not udpdated; expected %v, got %v\n", itemToUpdate.Title, updatedItem.Title)
 	}
 
 	// Verify completed status
 	if updatedItem.Completed != itemToUpdate.Completed {
-		t.Errorf("completed status not updated; expected %v, got %v", itemToUpdate.Completed, updatedItem.Completed)
-		t.FailNow()
+		t.Fatalf("completed status not updated; expected %v, got %v\n", itemToUpdate.Completed, updatedItem.Completed)
 	}
 }
