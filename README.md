@@ -30,3 +30,12 @@ export DB_PORT=3306
 cd mysql
 go test
 ```
+
+## API
+This API provides the following endpoints:
+```
+POST    /items
+DELETE  /items/{itemID}
+GET     /items/{itemID}
+PUT     /items/{itemID}
+```
