@@ -72,10 +72,6 @@ func FindItemByID(w http.ResponseWriter, r *http.Request) {
 // UpdateItem will update an existing item in the database.
 func UpdateItem(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	if vars["itemID"] == "" {
-		jsonResponse(w, http.StatusBadRequest, "an item id must be provided via the url")
-		return
-	}
 
 	var i todo.Item
 	err := json.NewDecoder(r.Body).Decode(&i)
