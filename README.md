@@ -1,4 +1,7 @@
 # go-todo-example
+A simple RESTful API in Go.
+
+This repo provides example code for [my article](https://medium.com/rv-data/go-database-integration-testing-with-docker-cb145b5f942c) on database integration testing in Go.
 
 ## Development
 To run locally, you will need to set the following environment variables:
